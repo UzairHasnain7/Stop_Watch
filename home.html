@@ -1,0 +1,306 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        background-color: red;
+    }
+    h1,h3{
+        color: white;
+    }
+    .digit{
+        font-size: 120px;
+        color: white;
+    }
+    .txt{
+        font-size: 30px;
+        color: white;
+    }
+    .btn{
+        width: 100px;
+        padding: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+    #start:hover{
+        background-color: black;
+        color: white;
+        border-color: green;
+    }
+    #stop:hover{
+        background-color: black;
+        color: white;
+        border-radius: blue;
+    }
+    #reset:hover{
+        background-color: black;
+        color: white;
+        border-radius: blue;
+    }
+</style>
+
+
+</head>
+
+<body>
+<center>
+    <div class="container">
+        <h1>STOP WATCH</h1>
+        <span class="digit" id="hr">00</span>
+        <span class="txt">Hr</span>
+        <span class="digit" id="Min">00</span>
+        <span class="txt">Min</span>
+        <span class="digit" id="sec">00</span>
+        <span class="txt">Sec</span>
+        <span class="digit" id="count">00</span>
+    </div>
+    <div class="buttons">
+        <button class="btn" id="start" onclick="startfunc()">Start</button>
+        <button class="btn" id="stop" onclick="stopfunc()">Stop</button>
+        <button class="btn" id="reset" onclick="resetfunc()">Reset</button>
+    </div>
+    <div class="status">
+        <h1 id="timestatus"></h1>
+    </div>
+</center>
+
+<script>
+    var startbtn = document.getElementById("start");
+    var stoptbtn = document.getElementById("stop");
+    var resetbtn = document.getElementById("reset");
+
+    var hour = 00;
+    var minute = 00;
+    var second = 00;
+    var count = 00;
+
+    function startfunc(){
+        timer = true;
+        stopwatch();
+    }
+function stopfunc(){
+    timer = false;
+}
+function resetfunc(){
+    timer = false;
+    hour = 0;
+    minute = 0;
+    second = 0;
+    count = 0;
+    document.getElementById("hr").innerHTML = "00";
+    document.getElementById("min").innerHTML = "00";
+    document.getElementById("sec").innerHTML = "00";
+    document.getElementById("count").innerHTML = "00";
+}
+
+function stopwatch(){
+    if(timer){
+        count++;
+
+        if(count == 100){
+            second++;
+            count = 0;
+        }
+
+        if(second == 60){
+            minute++;
+            second = 0;
+        }
+
+        if(minute == 60){
+            hour++;
+            minute = 0;
+            second = 0;
+        }
+
+        var hrString = hour;
+        var minString = minute;
+        var secString = second;
+        var countString = count;
+    }
+
+    if(hour < 10){
+        hrString = "0" + hrString;
+    }
+    if(minute < 10){
+        hrString = "0" + minString;
+    }
+    if(second < 10){
+        hrString = "0" + secString;
+    }
+    if(count < 10){
+        hrString = "0" + countString;
+    }
+
+    document.getElementById("hr").innerHTML = hrString;
+    document.getElementById("min").innerHTML = minString;
+    document.getElementById("sec").innerHTML = secString;
+    document.getElementById("count").innerHTML = countString;
+    setTimeout(stopwatch, 10);
+    document.getElementById("timestatus").innerHTML = "Your time is "+secString+" Seconds "+minString+" Minutes "+hrString+" Hours ";
+}
+</script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+body{
+    background-color: black;
+}
+
+h1,h3{
+    color: white;
+}
+.digit{
+    font-size: 120px;
+    color: white;
+}
+.txt{
+    font-size: 30px;
+    color: white;
+}
+.btn{
+    width:100px;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+#start:hover{
+    background-color: black;
+    color: white;
+    border-color: green;
+}
+#stop:hover{
+    background-color: black;
+    color: white;
+    border-color: red;
+}
+#reset:hover{
+    background-color: black;
+    color: white;
+    border-color: blue;
+}
+</style>
+
+</head>
+<body>
+    <center>
+    <div class="container">
+        <h1>STOP WATCH</h1>
+        <div class="time">
+            <span class="digit" id="hr">00</span>
+            <span class="txt">Hr</span>
+            <span class="digit" id="min">00</span>
+            <span class="txt">Min</span>
+            <span class="digit" id="sec">00</span>
+            <span class="txt">Sec</span>
+            <span class="digit" id="count">00</span>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="start" onclick="startfunc()">Start</button>
+            <button class="btn" id="stop" onclick="stopfunc()">Stop</button>
+            <button class="btn" id="reset" onclick="resetfunc()">Reset</button>
+        </div>
+        <div class="status">
+            <h3 id="timestatus"></h2>
+        </div>
+    </div>
+</center>
+
+<script>
+
+var startbtn = document.getElementById("start");
+var stopbtn = document.getElementById("stop");
+var resetbtn = document.getElementById("reset");
+
+var hour = 00;
+var minute = 00;
+var second = 00;
+var count = 00;
+
+function startfunc(){
+    timer = true;
+    stopWatch();
+}
+function stopfunc(){
+    timer=false;
+}
+function resetfunc() {
+    timer=false;
+    hour = 0;
+    minute =0;
+    second =0;
+    count =0;
+    document.getElementById('hr').innerHTML='00';
+    document.getElementById('min').innerHTML ='00' ;
+    document.getElementById('sec').innerHTML ='00' ;
+    document.getElementById('count').innerHTML ='00' ;
+}
+function stopWatch(){
+    if(timer){
+        count++
+        if(count == 100){
+            second++;
+            count = 0;
+        }
+        if (second==60) {
+            minute++;
+            second = 0;
+        }
+        if (minute==60 ){
+            hour ++;
+            minute = 0;
+            second = 0;
+        }
+        var hrString = hour;
+        var minString = minute;
+        var secString = second;
+        var countString = count;
+
+        if(hour < 10){
+            hrString = "0" + hrString;
+        }
+        if(minute<10){
+            minString = "0" + minString;
+        }
+        if(second<10){
+            secString = "0" + secString;
+        }
+        if(count<10){
+            countString = "0" + countString;
+        }
+        document.getElementById("hr").innerHTML = hrString;
+        document.getElementById("min").innerHTML = minString;
+        document.getElementById("sec").innerHTML = secString;
+        document.getElementById("count").innerHTML = countString;
+        setTimeout(stopWatch,10);
+        document.getElementById("timestatus").innerHTML = "Your time is"+secString+"Second"+minString+"Minutes"+hrString+"Hours";
+
+    }
+}
+
+
+</script>
+
+</body>
+</html>
